@@ -8,6 +8,9 @@ from flask import Flask, render_template, request, jsonify
 from tensorflow.keras.models import load_model
 from werkzeug.utils import secure_filename
 
+# Suppress TensorFlow logging
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2' # 0 = all messages, 1 = filter out INFO, 2 = filter out WARNING, 3 = filter out ERROR
+
 # initialization
 load_dotenv()
 app = Flask(__name__)
